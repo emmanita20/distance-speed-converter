@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <link rel="stylesheet" href="style.css">
+    <title>Converter</title>
+  </head>
+  <body>
+    <center>
+      
+    <h1>Miles to Kilometers Converter</h1>
+    <p>
+      Type in a number of miles and click the button to convert the distance to
+      kilometer
+    </p>
+    <form method="post" action="somephpfile.php" id="convert">
+      <input type="text" name="distance" id="distance" placeholder="distance" />
+      <input type="submit" name="convertdist" value="Convert Distance" />
+    </form>
+    <div>
+      <div class="container bottom" id="answer">
+        <h2 class="invisible">Answer goes here</h2>
+      </div>
+    </div>
+  </center>
+
+    <script>
+      document
+        .getElementById("convert")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          var distance = parseFloat(document.getElementById("distance").value);
+          if (distance) {
+            var conversion = Math.round(distance * 1.609344);
+            
+            var answer = document.getElementById('answer');
+            answer.innerHTML= `<h2>  ${distance} Distance miles converts to ${conversion} kilometer</h2>`;
+          } else {
+          }
+        });
+    </script>
+  </body>
+</html>
